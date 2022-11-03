@@ -379,12 +379,49 @@ internal static class DataSource
         });
         return products;
     }
-    
+    private static List<Order> AddOrder(int id, string customerName, string customerEmail, string customerAdress, DateTime orderDate, DateTime shipDate, DateTime delivaryDate)
+    {
+        orders.Add(new Order
+        {
+            ID = id,
+            CustomerName = customerName,
+            CustomerEmail = customerEmail,
+            CustomerAdress = customerAdress,
+            OrderDate = orderDate,
+            ShipDate = shipDate,
+            DeliveryDate = delivaryDate
+        });
+        return orders;
+    }
+    private static List<OrderItem> AddOrderItem(int productId, int orderId, double price, int amount)
+    {
+        orderItems.Add(new OrderItem
+        {
+            ProductID = productId,
+            OrderID = orderId,
+            Price = price,
+            Amount = amount
+        });
+        return orderItems;
+    }
+    private static List<Product> AddProduct(int id, string name, double price, Categories caregory, int inStock)
+    {
+        products.Add(new Product
+        {
+            ID = id,
+            Name = name,
+            Price = price,
+            Category = caregory,
+            InStock = inStock
+        });
+        return products;
+    }
     private static void s_Initialize()
     {
         AddProduct();
         AddOrder();
         AddOrderItem();
+
     }
 
     internal static class Config
