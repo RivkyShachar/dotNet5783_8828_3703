@@ -1,15 +1,16 @@
-﻿using DO;
+﻿using System.ComponentModel;
+using DO;
 
 namespace Dal;
 
 internal static class DataSource
 {
+   
     //need to fix capital letters and such
 
     //need to check in its really public
     //need to check if this is the right way to write this part(random)
-    public static Random? random = new Random();
-    public static int? randNum = random.Next(1,20);
+    //public static Random random = new Random();// The next randoms will be Id=random.Next(100100,999999)
 
     internal static List<Order> orders = new List<Order>();
     internal static List<OrderItem>? orderItems;
@@ -19,6 +20,20 @@ internal static class DataSource
     {
         s_Initialize();
     }
+    // IF NEEDED FUNCT TO GENERATE DIFFERENT RANDOM INT :
+    //private static void Shuffle(int []arr)
+    //{//when a random id is called, do : var numbers = Enumerable.Range(100100,999999).ToArray();
+    // // Shuffle(numbers);
+    // //ID = numbers[0];
+    //    Random rnd = new Random();
+    //    for (int i = arr.Length; i > 1; i--)
+    //    {
+    //        int pos = rnd.Next(i);
+    //        var x = arr[i - 1];
+    //        arr[i - 1] = arr[pos];
+    //        arr[pos] = x;
+    //    }
+    //}
     private static List<Order> AddOrder()
     {
         //ship is 5 days from order
