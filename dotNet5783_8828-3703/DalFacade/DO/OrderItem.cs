@@ -1,9 +1,10 @@
 ﻿namespace DO;
 
-public struct OrderItem
-{/// <summary>
+/// <summary>
 /// Structure for Order Item, contains Product Id, Order Id, Price, Amount + ToString override
 /// </summary>
+public struct OrderItem
+{
     public int ProductID { get; set; }
     public int OrderID { get; set; }
     public double Price { get; set; }

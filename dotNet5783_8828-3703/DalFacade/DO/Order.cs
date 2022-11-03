@@ -1,10 +1,11 @@
 ﻿namespace DO;
 
-public struct Order
-{/// <summary>
+/// <summary>
 /// Structure for Order, contains  Id, Customer Name & Email & adress, order date, shipping date, delivery date
 /// + ToString override
 /// </summary>
+public struct Order
+{
     public int ID { get; set; }
     public string CustomerName { get; set; }
     public string CustomerEmail { get; set; }
