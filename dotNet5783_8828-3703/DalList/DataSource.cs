@@ -137,6 +137,87 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
+        orders.Add(new Order
+        {
+            CustomerName = "Sara",
+            CustomerEmail = "Sara@gmail.com",
+            CustomerAdress = "Tishrey 13 Haifa",
+            OrderDate = order.OrderDate,
+            ShipDate = order.ShipDate,
+            DeliveryDate = order.DeliveryDate
+        });
+        orders.Add(new Order
+        {
+            CustomerName = "Rivka",
+            CustomerEmail = "Rivka@gmail.com",
+            CustomerAdress = "Cheshvan 14 Haifa",
+            OrderDate = order.OrderDate,
+            ShipDate = order.ShipDate,
+            DeliveryDate = order.DeliveryDate
+        });
+        orders.Add(new Order
+        {
+            CustomerName = "Rachel",
+            CustomerEmail = "Rachel@gmail.com",
+            CustomerAdress = "Kislev 15 Haifa",
+            OrderDate = order.OrderDate,
+            ShipDate = order.ShipDate,
+            DeliveryDate = order.DeliveryDate
+        });
+        orders.Add(new Order
+        {
+            CustomerName = "Lea",
+            CustomerEmail = "Lea@gmail.com",
+            CustomerAdress = "Tevet 16 Haifa",
+            OrderDate = order.OrderDate,
+            ShipDate = order.ShipDate,
+            DeliveryDate = order.DeliveryDate
+        });
+        orders.Add(new Order
+        {
+            CustomerName = "Yehudit",
+            CustomerEmail = "Yehudit@gmail.com",
+            CustomerAdress = "Shvat 17 Haifa",
+            OrderDate = order.OrderDate,
+            ShipDate = order.ShipDate,
+            DeliveryDate = order.DeliveryDate
+        });
+        orders.Add(new Order
+        {
+            CustomerName = "Avigail",
+            CustomerEmail = "Avigail@gmail.com",
+            CustomerAdress = "Adar 18 Haifa",
+            OrderDate = order.OrderDate,
+            ShipDate = order.ShipDate,
+            DeliveryDate = order.DeliveryDate
+        });
+        orders.Add(new Order
+        {
+            CustomerName = "Shira",
+            CustomerEmail = "Shira@gmail.com",
+            CustomerAdress = "Nisan 19 Haifa",
+            OrderDate = order.OrderDate,
+            ShipDate = order.ShipDate,
+            DeliveryDate = order.DeliveryDate
+        });
+        orders.Add(new Order
+        {
+            CustomerName = "Hadas",
+            CustomerEmail = "Hadas@gmail.com",
+            CustomerAdress = "Tamuz 20 Haifa",
+            OrderDate = order.OrderDate,
+            ShipDate = order.ShipDate,
+            DeliveryDate = order.DeliveryDate
+        });
+        orders.Add(new Order
+        {
+            CustomerName = "Neomi",
+            CustomerEmail = "Neomi@gmail.com",
+            CustomerAdress = "Av 21 Haifa",
+            OrderDate = order.OrderDate,
+            ShipDate = order.ShipDate,
+            DeliveryDate = order.DeliveryDate
+        });
         return orders;
     }
     private static List<OrderItem> AddOrderItem()
