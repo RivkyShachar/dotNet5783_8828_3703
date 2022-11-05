@@ -1,5 +1,8 @@
-﻿namespace Dal;
+﻿using DO;
+
+namespace Dal;
 
 public class DalProduct
 {
+
 }

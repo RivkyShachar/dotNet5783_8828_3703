@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using DO;
 
 namespace Dal;
@@ -12,9 +13,9 @@ internal static class DataSource
     //need to check if this is the right way to write this part(random)
     //public static Random random = new Random();// The next randoms will be Id=random.Next(100100,999999)
 
-    internal static List<Order> orders = new List<Order>();
-    internal static List<OrderItem>? orderItems;
-    internal static List<Product>? products;
+    internal static List<Order> ordersList = new List<Order>();
+    internal static List<OrderItem>? orderItemsList;
+    internal static List<Product>? productsList;
 
     static DataSource()
     {
@@ -44,7 +45,7 @@ internal static class DataSource
         order.OrderDate = DateTime.MinValue;
         order.ShipDate = order.OrderDate.Add(OrderToShip);
         order.DeliveryDate = order.ShipDate.Add(ShipToDelivery);
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100000,
             CustomerName = "Reuven",
@@ -54,7 +55,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100001,
             CustomerName = "Shimon",
@@ -64,7 +65,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100002,
             CustomerName = "Levi",
@@ -74,7 +75,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100003,
             CustomerName = "Yehuda",
@@ -84,7 +85,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100004,
             CustomerName = "Zvulun",
@@ -94,7 +95,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100005,
             CustomerName = "Ysaschar",
@@ -104,7 +105,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100006,
             CustomerName = "Gad",
@@ -114,7 +115,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100007,
             CustomerName = "Naftali",
@@ -124,7 +125,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100008,
             CustomerName = "Asher",
@@ -134,7 +135,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100009,
             CustomerName = "Dan",
@@ -144,7 +145,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100010,
             CustomerName = "Yossef",
@@ -154,7 +155,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100011,
             CustomerName = "Binyamin",
@@ -164,7 +165,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100012,
             CustomerName = "Sara",
@@ -174,7 +175,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100013,
             CustomerName = "Rivka",
@@ -184,7 +185,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100014,
             CustomerName = "Rachel",
@@ -194,7 +195,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100015,
             CustomerName = "Lea",
@@ -204,7 +205,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100016,
             CustomerName = "Yehudit",
@@ -214,7 +215,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100017,
             CustomerName = "Avigail",
@@ -224,7 +225,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100018,
             CustomerName = "Shira",
@@ -234,7 +235,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100019,
             CustomerName = "Hadas",
@@ -244,7 +245,7 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = 100020,
             CustomerName = "Neomi",
@@ -254,57 +255,57 @@ internal static class DataSource
             ShipDate = order.ShipDate,
             DeliveryDate = order.DeliveryDate
         });
-        return orders;
+        return ordersList;
     }
     private static List<OrderItem> AddOrderItem()
     {
-        orderItems.Add(new OrderItem { OrderID = 100000, ProductID = 100000, Price = 10, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100000, ProductID = 100001, Price = 5, Amount = 2});
-        orderItems.Add(new OrderItem { OrderID = 100001, ProductID = 100002, Price = 100, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100002, ProductID = 100003, Price = 30, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100002, ProductID = 100008, Price = 13, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100002, ProductID = 100006, Price = 78, Amount = 2});
-        orderItems.Add(new OrderItem { OrderID = 100002, ProductID = 100000, Price = 10, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100003, ProductID = 100005, Price = 80, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100004, ProductID = 100001, Price = 5, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100004, ProductID = 100002, Price = 100, Amount = 5});
-        orderItems.Add(new OrderItem { OrderID = 100004, ProductID = 100000, Price = 10, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100005, ProductID = 100004, Price = 20, Amount = 2});
-        orderItems.Add(new OrderItem { OrderID = 100005, ProductID = 100003, Price = 30, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100006, ProductID = 100007, Price = 3, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100006, ProductID = 100006, Price = 78, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100006, ProductID = 100009, Price = 25, Amount = 2});
-        orderItems.Add(new OrderItem { OrderID = 100006, ProductID = 100008, Price = 13, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100007, ProductID = 100001, Price = 5, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100007, ProductID = 100000, Price = 10, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100007, ProductID = 100010, Price = 55, Amount = 3});
-        orderItems.Add(new OrderItem { OrderID = 100007, ProductID = 100004, Price = 20, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100008, ProductID = 100003, Price = 30, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100008, ProductID = 100005, Price = 80, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100008, ProductID = 100008, Price = 13, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100009, ProductID = 100001, Price = 5, Amount = 8});
-        orderItems.Add(new OrderItem { OrderID = 100009, ProductID = 100000, Price = 10, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100010, ProductID = 100009, Price = 25, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100011, ProductID = 100008, Price = 13, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100011, ProductID = 100006, Price = 78, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100012, ProductID = 100003, Price = 30, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100013, ProductID = 100001, Price = 5, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100014, ProductID = 100007, Price = 3, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100014, ProductID = 100000, Price = 10, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100015, ProductID = 100008, Price = 13, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100016, ProductID = 100009, Price = 25, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100017, ProductID = 100010, Price = 55, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100017, ProductID = 100008, Price = 13, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100017, ProductID = 100007, Price = 3, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100018, ProductID = 100001, Price = 5, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100018, ProductID = 100006, Price = 78, Amount = 1});
-        orderItems.Add(new OrderItem { OrderID = 100019, ProductID = 100005, Price = 80, Amount = 2});
-        orderItems.Add(new OrderItem { OrderID = 100019, ProductID = 100004, Price = 20, Amount = 3});
-        return orderItems;
+        orderItemsList.Add(new OrderItem { OrderID = 100000, ProductID = 100000, Price = 10, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100000, ProductID = 100001, Price = 5, Amount = 2});
+        orderItemsList.Add(new OrderItem { OrderID = 100001, ProductID = 100002, Price = 100, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100002, ProductID = 100003, Price = 30, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100002, ProductID = 100008, Price = 13, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100002, ProductID = 100006, Price = 78, Amount = 2});
+        orderItemsList.Add(new OrderItem { OrderID = 100002, ProductID = 100000, Price = 10, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100003, ProductID = 100005, Price = 80, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100004, ProductID = 100001, Price = 5, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100004, ProductID = 100002, Price = 100, Amount = 5});
+        orderItemsList.Add(new OrderItem { OrderID = 100004, ProductID = 100000, Price = 10, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100005, ProductID = 100004, Price = 20, Amount = 2});
+        orderItemsList.Add(new OrderItem { OrderID = 100005, ProductID = 100003, Price = 30, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100006, ProductID = 100007, Price = 3, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100006, ProductID = 100006, Price = 78, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100006, ProductID = 100009, Price = 25, Amount = 2});
+        orderItemsList.Add(new OrderItem { OrderID = 100006, ProductID = 100008, Price = 13, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100007, ProductID = 100001, Price = 5, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100007, ProductID = 100000, Price = 10, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100007, ProductID = 100010, Price = 55, Amount = 3});
+        orderItemsList.Add(new OrderItem { OrderID = 100007, ProductID = 100004, Price = 20, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100008, ProductID = 100003, Price = 30, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100008, ProductID = 100005, Price = 80, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100008, ProductID = 100008, Price = 13, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100009, ProductID = 100001, Price = 5, Amount = 8});
+        orderItemsList.Add(new OrderItem { OrderID = 100009, ProductID = 100000, Price = 10, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100010, ProductID = 100009, Price = 25, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100011, ProductID = 100008, Price = 13, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100011, ProductID = 100006, Price = 78, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100012, ProductID = 100003, Price = 30, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100013, ProductID = 100001, Price = 5, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100014, ProductID = 100007, Price = 3, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100014, ProductID = 100000, Price = 10, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100015, ProductID = 100008, Price = 13, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100016, ProductID = 100009, Price = 25, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100017, ProductID = 100010, Price = 55, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100017, ProductID = 100008, Price = 13, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100017, ProductID = 100007, Price = 3, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100018, ProductID = 100001, Price = 5, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100018, ProductID = 100006, Price = 78, Amount = 1});
+        orderItemsList.Add(new OrderItem { OrderID = 100019, ProductID = 100005, Price = 80, Amount = 2});
+        orderItemsList.Add(new OrderItem { OrderID = 100019, ProductID = 100004, Price = 20, Amount = 3});
+        return orderItemsList;
     }
     private static List<Product> AddProduct()
     {
-        products.Add(new Product
+        productsList.Add(new Product
         {
             ID=100000,
             Name="Aeroplane",
@@ -312,7 +313,7 @@ internal static class DataSource
             Category=Categories.CRAFTS,
             InStock=19,
         });
-        products.Add(new Product
+        productsList.Add(new Product
         {
             ID = 100001,
             Name = "Ball",
@@ -320,7 +321,7 @@ internal static class DataSource
             Category =Categories.OUTDOOR,
             InStock =30,
         });
-        products.Add(new Product
+        productsList.Add(new Product
         {
             ID = 100002,
             Name = "Bicycle",
@@ -328,7 +329,7 @@ internal static class DataSource
             Category =Categories.RIDING_TOYS,
             InStock =1,
         });
-        products.Add(new Product
+        productsList.Add(new Product
         {
             ID = 100003,
             Name = "Car",
@@ -336,7 +337,7 @@ internal static class DataSource
             Category =Categories.CARS_AND_RIDING_TOYS,
             InStock =0,
         });
-        products.Add(new Product
+        productsList.Add(new Product
         {
             ID = 100004,
             Name = "Teddybear",
@@ -344,7 +345,7 @@ internal static class DataSource
             Category =Categories.DOLLS,
             InStock =4,
         });
-        products.Add(new Product
+        productsList.Add(new Product
         {
             ID = 100005,
             Name = "Rocking horse",
@@ -352,7 +353,7 @@ internal static class DataSource
             Category =Categories.WOODEN,
             InStock =0,
         });
-        products.Add(new Product
+        productsList.Add(new Product
         {
             ID = 100006,
             Name = "Doll",
@@ -360,7 +361,7 @@ internal static class DataSource
             Category =Categories.DOLLS,
             InStock =7,
         });
-        products.Add(new Product
+        productsList.Add(new Product
         {
             ID = 100007,
             Name = "Duck",
@@ -368,7 +369,7 @@ internal static class DataSource
             Category =Categories.BATH_TOYS,
             InStock =25,
         });
-        products.Add(new Product
+        productsList.Add(new Product
         {
             ID = 100008,
             Name = "Kite",
@@ -376,7 +377,7 @@ internal static class DataSource
             Category =Categories.OUTDOOR,
             InStock =6,
         });
-        products.Add(new Product
+        productsList.Add(new Product
         {
             ID = 100009,
             Name = "Puzzle",
@@ -384,7 +385,7 @@ internal static class DataSource
             Category =Categories.PUZZLES,
             InStock =8,
         });
-        products.Add(new Product
+        productsList.Add(new Product
         {
             ID = 100010,
             Name = "Bimba",
@@ -392,11 +393,11 @@ internal static class DataSource
             Category =Categories.RIDING_TOYS,
             InStock =0,
         });
-        return products;
+        return productsList;
     }
     private static List<Order> AddOrder(int id, string customerName, string customerEmail, string customerAdress, DateTime orderDate, DateTime shipDate, DateTime delivaryDate)
     {
-        orders.Add(new Order
+        ordersList.Add(new Order
         {
             ID = id,
             CustomerName = customerName,
@@ -406,22 +407,22 @@ internal static class DataSource
             ShipDate = shipDate,
             DeliveryDate = delivaryDate
         });
-        return orders;
+        return ordersList;
     }
     private static List<OrderItem> AddOrderItem(int productId, int orderId, double price, int amount)
     {
-        orderItems.Add(new OrderItem
+        orderItemsList.Add(new OrderItem
         {
             ProductID = productId,
             OrderID = orderId,
             Price = price,
             Amount = amount
         });
-        return orderItems;
+        return orderItemsList;
     }
     private static List<Product> AddProduct(int id, string name, double price, Categories caregory, int inStock)
     {
-        products.Add(new Product
+        productsList.Add(new Product
         {
             ID = id,
             Name = name,
@@ -429,7 +430,7 @@ internal static class DataSource
             Category = caregory,
             InStock = inStock
         });
-        return products;
+        return productsList;
     }
     private static void s_Initialize()
     {
@@ -443,4 +444,117 @@ internal static class DataSource
     {
 
     }
+    #region Product Function
+    public static int AddProduct(Product product)
+    {
+        Product prod = GetProduct(product.ID);
+        if (!prod.Equals(null))
+            throw new Exception("Product with the same id already exists...");
+        productsList.Add(product);
+        return product.ID;
+    }
+    public static bool DeleteProduct(int id)
+    {
+        Product prod = GetProduct(id);
+        if (prod.Equals(null))
+            throw new Exception("Product with the same id not found...");
+
+        orderItemsList.RemoveAll(sc => sc.ProductID == id);
+
+        return productsList.Remove(prod);
+    }
+    public static void UpdateProduct(Product product)
+    {
+        int index = productsList.FindIndex(s => s.ID == product.ID);
+        if (index == -1)
+            throw new Exception("Product with the same id not found...");
+
+        productsList[index] = product;
+    }
+    public static Product GetProduct(int id)
+    {
+        return productsList.FirstOrDefault(s => s.ID == id);
+    }
+    public static IEnumerable<Product> GetAllProducts(Func<Product, bool> predicat = null)
+    {
+        if (predicat == null)
+            return productsList.AsEnumerable();
+
+        return productsList.Where(predicat);
+    }
+    #endregion
+
+    #region Order Function
+    public static int AddOrder(Order order)
+    {
+        Order ord = GetOrder(order.ID);
+        if(!ord.Equals(null))
+            throw new Exception("Order with the same id already exists...");
+        ordersList.Add(order);
+        return order.ID;
+    }
+    public static bool DeleteOrder(int id)
+    {
+        Order ord = GetOrder(id);
+        if (ord.Equals(null))
+            throw new Exception("Order with the same id not found...");
+        orderItemsList.RemoveAll(sc => sc.OrderID == id);
+        return ordersList.Remove(ord);
+    }
+    public static void UpdateOrder(Order order)
+    {
+        int index = ordersList.FindIndex(s => s.ID == order.ID);
+        if(index == -1)
+            throw new Exception("Order with the same id not found...");
+        ordersList[index] = order;
+    }
+    public static Order GetOrder(int id)
+    {
+        return ordersList.FirstOrDefault(s => s.ID == id);
+    }
+    public static IEnumerable<Order> GetAllOrders(Func<Order, bool> predicat = null)
+    {
+        if (predicat == null)
+            return ordersList.AsEnumerable();
+
+        return ordersList.Where(predicat);
+    }
+    #endregion
+
+    #region OrderItem Function
+    public static void AddOrderItem(OrderItem orderItem)
+    {
+        orderItemsList.Add(orderItem);
+        //need to ask what it returns
+        //return orderItem.OrderID;
+    }
+    public static bool DeleteOrderItem(int id)
+    {
+        OrderItem ordItm = GetOrderItem(id);
+        if (ordItm.Equals(null))
+            throw new Exception("Order item with the same id not found...");
+        orderItemsList.RemoveAll(sc => sc.OrderID == id);
+        return orderItemsList.Remove(ordItm);
+    }
+    public static void UpdateOrderItem(OrderItem orderItem)
+    {
+        int index = orderItemsList.FindIndex(s => s.OrderID == orderItem.OrderID);
+        if (index == -1)
+            throw new Exception("Order item with the same id not found...");
+        orderItemsList[index] = orderItem;
+    }
+    public static OrderItem GetOrderItem(int id)
+    {
+        //need to ask what it returns
+        return orderItemsList.FirstOrDefault(s => s.OrderID == id);
+    }
+    public static IEnumerable<OrderItem> GetAllOrederItems(Func<OrderItem, bool> predicat = null)
+    {
+        if (predicat == null)
+            return orderItemsList.AsEnumerable();
+
+        return orderItemsList.Where(predicat);
+    }
+    #endregion
+    
 }
