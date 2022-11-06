@@ -1,4 +1,7 @@
-﻿namespace DO;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace DO;
 //nned to ask if the public is good
 public enum Categories { BATH_TOYS, BOARD_GAMES, ELECTRONICS, REMOTE_CONTROL, SHEKEL_PRIZES, TOY_TOOLS, TRAIN_TOYS, WOODEN, 
     BUILDING_TOYS, BALLOONS, CARS_AND_RIDING_TOYS, CRAFTS, CORE_STABILITY, DOLLS, GAMES, JUDAICA, MANIPULATIVES, 

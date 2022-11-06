@@ -7,9 +7,10 @@ public class DalProduct
     #region Product Function
     public int AddProduct(Product product)
     {
-        Product prod = GetProduct(product.ID);
-        if (!prod.Equals(null))
-            throw new Exception("Product with the same id already exists...");
+        product.ID = DataSource.Config.getProductId;
+        //Product prod = GetProduct(product.ID);
+        //if (!prod.Equals(null))
+        //    throw new Exception("Product with the same id already exists...");
         DataSource.productsList.Add(product);
         return product.ID;
     }

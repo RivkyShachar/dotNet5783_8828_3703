@@ -7,6 +7,7 @@ Console.WriteLine("Hello, World!");
 void ProductOption()
 {
     DalProduct dalProduct = new DalProduct();
+    Product p=new Product();
     Console.WriteLine(@"Product options
 Add a product: enter a
 Get a profuct: enter b
@@ -17,7 +18,15 @@ Delete a product: enter e");
     switch (option)
     {
         case "a":
-            Console.WriteLine("for adding a product please enter the folowing");
+            Console.WriteLine("for adding a product please enter the folowing name,price,category,how many in stock");
+            Categories categories=new Categories();
+            Console.WriteLine("enter one of those categories: "+categories.ToString());
+            p.Name = Console.ReadLine();
+            int input=Convert.ToInt32(Console.ReadLine());
+            p.Category = (Categories)input;
+            p.Price=Convert.ToInt32(Console.ReadLine());
+            p.InStock = Convert.ToInt32(Console.ReadLine());
+            dalProduct.AddProduct(p);
             break;
         case "b":
             Console.WriteLine("Enter the product id you want to get");
