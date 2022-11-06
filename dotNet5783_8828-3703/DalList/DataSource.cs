@@ -395,11 +395,11 @@ internal static class DataSource
         });
         return productsList;
     }
-    private static List<Order> AddOrder(int id, string customerName, string customerEmail, string customerAdress, DateTime orderDate, DateTime shipDate, DateTime delivaryDate)
+    private static List<Order> AddOrder (string customerName, string customerEmail, string customerAdress, DateTime orderDate, DateTime shipDate, DateTime delivaryDate)
     {
         ordersList.Add(new Order
         {
-            ID = id,
+            ID = Config.getProductId,
             CustomerName = customerName,
             CustomerEmail = customerEmail,
             CustomerAdress = customerAdress,
@@ -409,22 +409,22 @@ internal static class DataSource
         });
         return ordersList;
     }
-    private static List<OrderItem> AddOrderItem(int productId, int orderId, double price, int amount)
+    private static List<OrderItem> AddOrderItem( double price, int amount)
     {
         orderItemsList.Add(new OrderItem
         {
-            ProductID = productId,
-            OrderID = orderId,
+            ProductID = Config.getProductId,
+            OrderID = Config.getOrderId,
             Price = price,
             Amount = amount
         });
         return orderItemsList;
     }
-    private static List<Product> AddProduct(int id, string name, double price, Categories caregory, int inStock)
+    private static List<Product> AddProduct( string name, double price, Categories caregory, int inStock)
     {
         productsList.Add(new Product
         {
-            ID = id,
+            ID = Config.getProductId,
             Name = name,
             Price = price,
             Category = caregory,
@@ -447,8 +447,8 @@ internal static class DataSource
         internal static int ProductIndex = 0;
         internal static int OrderItemIndex = 0;
         /// First available Id for automatic Id:
-        private static int FirstOrderId = 100000;
-        private static int FirstProductId = 100000;
+        private static int FirstOrderId = 100100;
+        private static int FirstProductId = 100100;
         public static int getOrderId {  get { return FirstOrderId++; } }
         public static int getProductId { get { return FirstProductId++; } }
 
