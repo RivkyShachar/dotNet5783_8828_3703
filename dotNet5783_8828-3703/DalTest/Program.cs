@@ -47,7 +47,16 @@ Delete a product: enter e");
 }
 void OrderOption()
 {
+    DalOrder dalOrder = new DalOrder();
 
+        Console.WriteLine(@"Product options
+    Add an order: enter a
+Get an order: enter b
+Get all orders: enter c
+Update an order: enter d
+Delete an order: enter e");
+    string option = Console.ReadLine();
+    
 }
 void OrderItemOption()
 {
