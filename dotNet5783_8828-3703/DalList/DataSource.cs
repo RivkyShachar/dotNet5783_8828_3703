@@ -395,28 +395,31 @@ internal static class DataSource
         });
         return productsList;
     }
-    private static List<Order> AddOrder (string customerName, string customerEmail, string customerAdress, DateTime orderDate, DateTime shipDate, DateTime delivaryDate)
+    private static List<Order> AddOrder(string customerName, string customerEmail, string customerAdress, DateTime orderDate)
     {
-        ordersList.Add(new Order
-        {
-            ID = Config.getProductId,
-            CustomerName = customerName,
-            CustomerEmail = customerEmail,
-            CustomerAdress = customerAdress,
-            OrderDate = orderDate,
-            ShipDate = shipDate,
-            DeliveryDate = delivaryDate
-        });
-        return ordersList;
+        //ship is 5 days from order
+        TimeSpan OrderToShip = new(5, 0, 0, 0);
+        //delivery is 4 days from ship
+        TimeSpan ShipToDelivery = new(4, 0, 0, 0);
+        Order order = new Order();
+        order.ID = Config.getProductId;
+        order.CustomerName = customerName;
+        order.CustomerEmail = customerEmail;
+        order.CustomerAdress = customerAdress;
+        order.OrderDate =orderDate;
+        order.ShipDate = order.OrderDate.Add(OrderToShip);
+        order.DeliveryDate = order.ShipDate.Add(ShipToDelivery);
+        ordersList.Add(order);
+        return ordersList; 
     }
-    private static List<OrderItem> AddOrderItem( double price, int amount)
+    private static List<OrderItem> AddOrderItem(int id)
     {
         orderItemsList.Add(new OrderItem
         {
             ProductID = Config.getProductId,
             OrderID = Config.getOrderId,
-            Price = price,
-            Amount = amount
+            //Price= 
+            //Amount = 
         });
         return orderItemsList;
     }

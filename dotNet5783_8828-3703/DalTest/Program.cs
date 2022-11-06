@@ -49,18 +49,84 @@ void OrderOption()
 {
     DalOrder dalOrder = new DalOrder();
 
-        Console.WriteLine(@"Product options
-    Add an order: enter a
+        Console.WriteLine(@"Order options
+Add an order: enter a
 Get an order: enter b
 Get all orders: enter c
 Update an order: enter d
 Delete an order: enter e");
     string option = Console.ReadLine();
-    
+    switch (option)
+    {
+        case "a":
+            Console.WriteLine("for adding an order please enter the folowing");
+            break;
+        case "b":
+            Console.WriteLine("Enter the order id you want to get");
+            int orderID = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(dalOrder.GetOrder(orderID).ToString());
+            break;
+        case "c":
+            IEnumerable<Order> orders = new List<Order>();
+            orders = dalOrder.GetAllOrders();
+            foreach (Order order in orders)
+            {
+                Console.WriteLine(order.ToString());
+            }
+            break;
+        case "d":
+            Console.WriteLine("for updating an order please enter the folowing");
+            break;
+        case "e":
+            Console.WriteLine("Enter the order id you want to delete");
+            orderID = Convert.ToInt32(Console.ReadLine());
+            dalOrder.DeleteOrder(orderID);
+            break;
+        default:
+            break;
+    }
+
 }
 void OrderItemOption()
 {
+    DalOrderItem dalOrderItem = new DalOrderItem();
 
+    Console.WriteLine(@"Order Item options
+Add an order: enter a
+Get an order: enter b
+Get all orders: enter c
+Update an order: enter d
+Delete an order: enter e");
+    string option = Console.ReadLine();
+    switch (option)
+    {
+        case "a":
+            Console.WriteLine("for adding an order item please enter the folowing");
+            break;
+        case "b":
+            Console.WriteLine("Enter the order id you want to get");
+            int orderItemID = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(dalOrderItem.GetOrderItem(orderItemID).ToString());
+            break;
+        case "c":
+            IEnumerable<OrderItem> orderItems = new List<OrderItem>();
+            orderItems = dalOrderItem.GetAllOrederItems();
+            foreach (OrderItem orderItem in orderItems)
+            {
+                Console.WriteLine(orderItem.ToString());
+            }
+            break;
+        case "d":
+            Console.WriteLine("for updating an order item please enter the folowing");
+            break;
+        case "e":
+            Console.WriteLine("Enter the order id you want to delete");
+            orderItemID = Convert.ToInt32(Console.ReadLine());
+            dalOrderItem.DeleteOrderItem(orderItemID);
+            break;
+        default:
+            break;
+    }
 }
 void PrintOptions()
 {
