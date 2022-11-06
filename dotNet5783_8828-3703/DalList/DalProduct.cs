@@ -33,7 +33,6 @@ public class DalProduct
     }
     public Product GetProduct(int id)
     {
-        DataSource.productsList= new List<Product>();
         return DataSource.productsList.FirstOrDefault(s => s.ID == id);
     }
     public IEnumerable<Product> GetAllProducts(Func<Product, bool> predicat = null)

@@ -434,9 +434,9 @@ internal static class DataSource
     }
     private static void s_Initialize()
     {
-        AddProduct();
-        AddOrder();
-        AddOrderItem();
+        productsList=AddProduct();
+        ordersList=AddOrder();
+        orderItemsList=AddOrderItem();
 
     }
 
