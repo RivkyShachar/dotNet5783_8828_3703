@@ -14,8 +14,8 @@ internal static class DataSource
     //public static Random random = new Random();// The next randoms will be Id=random.Next(100100,999999)
 
     internal static List<Order> ordersList = new List<Order>();
-    internal static List<OrderItem>? orderItemsList;
-    internal static List<Product>? productsList;
+    internal static List<OrderItem> orderItemsList =new List<OrderItem>();
+    internal static List<Product> productsList = new List<Product>();
 
     static DataSource()
     {
@@ -453,117 +453,5 @@ internal static class DataSource
         public static int getProductId { get { return FirstProductId++; } }
 
     }
-    #region Product Function
-    public static int AddProduct(Product product)
-    {
-        Product prod = GetProduct(product.ID);
-        if (!prod.Equals(null))
-            throw new Exception("Product with the same id already exists...");
-        productsList.Add(product);
-        return product.ID;
-    }
-    public static bool DeleteProduct(int id)
-    {
-        Product prod = GetProduct(id);
-        if (prod.Equals(null))
-            throw new Exception("Product with the same id not found...");
 
-        orderItemsList.RemoveAll(sc => sc.ProductID == id);
-
-        return productsList.Remove(prod);
-    }
-    public static void UpdateProduct(Product product)
-    {
-        int index = productsList.FindIndex(s => s.ID == product.ID);
-        if (index == -1)
-            throw new Exception("Product with the same id not found...");
-
-        productsList[index] = product;
-    }
-    public static Product GetProduct(int id)
-    {
-        return productsList.FirstOrDefault(s => s.ID == id);
-    }
-    public static IEnumerable<Product> GetAllProducts(Func<Product, bool> predicat = null)
-    {
-        if (predicat == null)
-            return productsList.AsEnumerable();
-
-        return productsList.Where(predicat);
-    }
-    #endregion
-
-    #region Order Function
-    public static int AddOrder(Order order)
-    {
-        Order ord = GetOrder(order.ID);
-        if(!ord.Equals(null))
-            throw new Exception("Order with the same id already exists...");
-        ordersList.Add(order);
-        return order.ID;
-    }
-    public static bool DeleteOrder(int id)
-    {
-        Order ord = GetOrder(id);
-        if (ord.Equals(null))
-            throw new Exception("Order with the same id not found...");
-        orderItemsList.RemoveAll(sc => sc.OrderID == id);
-        return ordersList.Remove(ord);
-    }
-    public static void UpdateOrder(Order order)
-    {
-        int index = ordersList.FindIndex(s => s.ID == order.ID);
-        if(index == -1)
-            throw new Exception("Order with the same id not found...");
-        ordersList[index] = order;
-    }
-    public static Order GetOrder(int id)
-    {
-        return ordersList.FirstOrDefault(s => s.ID == id);
-    }
-    public static IEnumerable<Order> GetAllOrders(Func<Order, bool> predicat = null)
-    {
-        if (predicat == null)
-            return ordersList.AsEnumerable();
-
-        return ordersList.Where(predicat);
-    }
-    #endregion
-
-    #region OrderItem Function
-    public static void AddOrderItem(OrderItem orderItem)
-    {
-        orderItemsList.Add(orderItem);
-        //need to ask what it returns
-        //return orderItem.OrderID;
-    }
-    public static bool DeleteOrderItem(int id)
-    {
-        OrderItem ordItm = GetOrderItem(id);
-        if (ordItm.Equals(null))
-            throw new Exception("Order item with the same id not found...");
-        orderItemsList.RemoveAll(sc => sc.OrderID == id);
-        return orderItemsList.Remove(ordItm);
-    }
-    public static void UpdateOrderItem(OrderItem orderItem)
-    {
-        int index = orderItemsList.FindIndex(s => s.OrderID == orderItem.OrderID);
-        if (index == -1)
-            throw new Exception("Order item with the same id not found...");
-        orderItemsList[index] = orderItem;
-    }
-    public static OrderItem GetOrderItem(int id)
-    {
-        //need to ask what it returns
-        return orderItemsList.FirstOrDefault(s => s.OrderID == id);
-    }
-    public static IEnumerable<OrderItem> GetAllOrederItems(Func<OrderItem, bool> predicat = null)
-    {
-        if (predicat == null)
-            return orderItemsList.AsEnumerable();
-
-        return orderItemsList.Where(predicat);
-    }
-    #endregion
-    
 }
