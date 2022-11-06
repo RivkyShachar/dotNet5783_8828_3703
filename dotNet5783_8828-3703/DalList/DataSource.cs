@@ -442,6 +442,15 @@ internal static class DataSource
 
     internal static class Config
     {
+        /// The first next available index in the array of each :
+        internal static int OrderIndex = 0;
+        internal static int ProductIndex = 0;
+        internal static int OrderItemIndex = 0;
+        /// First available Id for automatic Id:
+        private static int FirstOrderId = 100000;
+        private static int FirstProductId = 100000;
+        public static int getOrderId {  get { return FirstOrderId++; } }
+        public static int getProductId { get { return FirstProductId++; } }
 
     }
     #region Product Function
