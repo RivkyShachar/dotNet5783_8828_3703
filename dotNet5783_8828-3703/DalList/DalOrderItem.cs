@@ -5,33 +5,30 @@ namespace Dal;
 public class DalOrderItem
 {
     #region OrderItem Function
-    public void AddOrderItem(OrderItem orderItem)
+    public int? Add(OrderItem orderItem)
     {
+        orderItem.ID = DataSource.Config.GetOrderItemId;
+        if (DataSource.orderItemsList.Contains(orderItem))
+            throw new Exception("This order item is already exist...");
         DataSource.orderItemsList.Add(orderItem);
-        //need to ask what it returns
-        //return orderItem.OrderID;
+        return orderItem.ID;
     }
-    public bool DeleteOrderItem(int id)
+    public void Delete(int id)
     {
-        OrderItem ordItm = GetOrderItem(id);
-        if (ordItm.Equals(null))
+        OrderItem orderItem = Get(id);
+        if (orderItem.Equals(null))
             throw new Exception("Order item with the same id not found...");
-        DataSource.orderItemsList.RemoveAll(sc => sc.OrderID == id);
-        return DataSource.orderItemsList.Remove(ordItm);
+        DataSource.orderItemsList.Remove(orderItem);
     }
-    public void UpdateOrderItem(OrderItem orderItem)
+    public void Update(OrderItem orderItem)
     {
-        int index = DataSource.orderItemsList.FindIndex(s => s.OrderID == orderItem.OrderID);
+        int index = DataSource.orderItemsList.FindIndex(s => s.ID == orderItem.ID);
         if (index == -1)
             throw new Exception("Order item with the same id not found...");
         DataSource.orderItemsList[index] = orderItem;
     }
-    public OrderItem GetOrderItem(int id)
-    {
-        //need to ask what it returns
-        return DataSource.orderItemsList.FirstOrDefault(s => s.OrderID == id);
-    }
-    public IEnumerable<OrderItem> GetAllOrederItems(Func<OrderItem, bool> predicat = null)
+    public OrderItem Get(int id) => DataSource.orderItemsList.FirstOrDefault(s => s.ID == id);
+    public IEnumerable<OrderItem> GetAll(Func<OrderItem, bool> predicat = null)
     {
         if (predicat == null)
             return DataSource.orderItemsList.AsEnumerable();

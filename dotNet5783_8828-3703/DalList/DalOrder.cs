@@ -5,34 +5,31 @@ namespace Dal;
 public class DalOrder
 {
     #region Order Function
-    public int AddOrder(Order order)
+
+    public int? Add(Order order)
     {
-        Order ord = GetOrder(order.ID);
-        if (!ord.Equals(null))
-            throw new Exception("Order with the same id already exists...");
+        order.ID = DataSource.Config.getOrderId;
+        if (DataSource.ordersList.Contains(order))
+            throw new Exception("This order is already exist...");
         DataSource.ordersList.Add(order);
         return order.ID;
     }
-    public bool DeleteOrder(int id)
+    public void Delete(int id)
     {
-        Order ord = GetOrder(id);
-        if (ord.Equals(null))
+        Order order = Get(id);
+        if (order.Equals(null))
             throw new Exception("Order with the same id not found...");
-        DataSource.orderItemsList.RemoveAll(sc => sc.OrderID == id);
-        return DataSource.ordersList.Remove(ord);
+        DataSource.ordersList.Remove(order);
     }
-    public void UpdateOrder(Order order)
+    public void Update(Order order)
     {
         int index = DataSource.ordersList.FindIndex(s => s.ID == order.ID);
         if (index == -1)
             throw new Exception("Order with the same id not found...");
         DataSource.ordersList[index] = order;
     }
-    public Order GetOrder(int id)
-    {
-        return DataSource.ordersList.FirstOrDefault(s => s.ID == id);
-    }
-    public IEnumerable<Order> GetAllOrders(Func<Order, bool> predicat = null)
+    public Order Get(int id)=>DataSource.ordersList.FirstOrDefault(s => s.ID == id);
+    public IEnumerable<Order> GetAll(Func<Order, bool> predicat = null)
     {
         if (predicat == null)
             return DataSource.ordersList.AsEnumerable();

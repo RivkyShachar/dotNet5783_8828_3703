@@ -1,30 +1,28 @@
 ﻿using DO;
 
 namespace Dal;
-
+/// <summary>
+/// DalProduct contain add, update, delete, get and get all methods on product
+/// </summary>
 public class DalProduct
 {
     #region Product Function
-    public int AddProduct(Product product)
+    public int? Add(Product product)
     {
         product.ID = DataSource.Config.getProductId;
-        //Product prod = GetProduct(product.ID);
-        //if (!prod.Equals(null))
-        //    throw new Exception("Product with the same id already exists...");
+        if(DataSource.productsList.Contains(product))
+            throw new Exception("This product is already exist...");
         DataSource.productsList.Add(product);
         return product.ID;
     }
-    public bool DeleteProduct(int id)
+    public void Delete(int id)
     {
-        Product prod = GetProduct(id);
-        if (prod.Equals(null))
+        Product product = Get(id);
+        if (product.Equals(null))
             throw new Exception("Product with the same id not found...");
-
-        DataSource.orderItemsList.RemoveAll(sc => sc.ProductID == id);
-
-        return DataSource.productsList.Remove(prod);
+        DataSource.productsList.Remove(product);
     }
-    public void UpdateProduct(Product product)
+    public void Update(Product product)
     {
         int index = DataSource.productsList.FindIndex(s => s.ID == product.ID);
         if (index == -1)
@@ -32,11 +30,8 @@ public class DalProduct
 
         DataSource.productsList[index] = product;
     }
-    public Product GetProduct(int id)
-    {
-        return DataSource.productsList.FirstOrDefault(s => s.ID == id);
-    }
-    public IEnumerable<Product> GetAllProducts(Func<Product, bool> predicat = null)
+    public Product Get(int id)=>DataSource.productsList.FirstOrDefault(s => s.ID == id);
+    public IEnumerable<Product> GetAll(Func<Product, bool> predicat = null)
     {
         if (predicat == null)
             return DataSource.productsList.AsEnumerable();
