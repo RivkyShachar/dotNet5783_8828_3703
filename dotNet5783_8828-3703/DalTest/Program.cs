@@ -19,11 +19,12 @@ Delete a product: enter e");
     {
         case "a":
             Console.WriteLine("for adding a product please enter the folowing name,price,category,how many in stock");
-            Categories categories=new Categories();
-            Console.WriteLine("enter one of those categories: "+categories.ToString());
+            
+            //Console.WriteLine("enter one of those categories: "+Categories.ToString());
             p.Name = Console.ReadLine();
-            int input=Convert.ToInt32(Console.ReadLine());
-            p.Category = (Categories)input;
+            string c = Console.ReadLine();
+            Categories categories = (Categories)Enum.Parse(typeof(Categories), c);
+            p.Category = categories;
             p.Price=Convert.ToInt32(Console.ReadLine());
             p.InStock = Convert.ToInt32(Console.ReadLine());
             dalProduct.AddProduct(p);

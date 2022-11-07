@@ -21,20 +21,7 @@ internal static class DataSource
     {
         s_Initialize();
     }
-    // IF NEEDED FUNCT TO GENERATE DIFFERENT RANDOM INT :
-    //private static void Shuffle(int []arr)
-    //{//when a random id is called, do : var numbers = Enumerable.Range(100100,999999).ToArray();
-    // // Shuffle(numbers);
-    // //ID = numbers[0];
-    //    Random rnd = new Random();
-    //    for (int i = arr.Length; i > 1; i--)
-    //    {
-    //        int pos = rnd.Next(i);
-    //        var x = arr[i - 1];
-    //        arr[i - 1] = arr[pos];
-    //        arr[pos] = x;
-    //    }
-    //}
+    
     private static List<Order> AddOrder()
     {
         //ship is 5 days from order
@@ -416,11 +403,11 @@ internal static class DataSource
     {
         orderItemsList.Add(new OrderItem
         {
-            ProductID = Config.getProductId,
+            ProductID = id,
             OrderID = Config.getOrderId,
-            //Price= 
-            //Amount = 
-        });
+            //Price= productsList.where(sc.Price => sc.ID == id);
+        //Amount = 
+    });
         return orderItemsList;
     }
     private static List<Product> AddProduct( string name, double price, Categories caregory, int inStock)
