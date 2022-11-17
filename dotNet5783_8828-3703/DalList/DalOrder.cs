@@ -1,8 +1,9 @@
 ﻿using DO;
+using DalApi;
 
 namespace Dal;
 
-public class DalOrder
+internal class DalOrder : IOrder
 {
     #region Order Function
 
@@ -28,7 +29,7 @@ public class DalOrder
             throw new Exception("Order with the same id not found...");
         DataSource.ordersList[index] = order;
     }
-    public Order Get(int id)=>DataSource.ordersList.FirstOrDefault(s => s.ID == id);
+    public Order Get(int? id)=>DataSource.ordersList.FirstOrDefault(s => s.ID == id);
     public IEnumerable<Order> GetAll(Func<Order, bool> predicat = null)
     {
         if (predicat == null)

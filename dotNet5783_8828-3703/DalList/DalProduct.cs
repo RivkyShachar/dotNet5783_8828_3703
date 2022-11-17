@@ -1,10 +1,11 @@
 ﻿using DO;
+using DalApi;
 
 namespace Dal;
 /// <summary>
 /// DalProduct contain add, update, delete, get and get all methods on product
 /// </summary>
-public class DalProduct
+internal class DalProduct : IProduct
 {
     #region Product Function
     public int? Add(Product product)
@@ -30,7 +31,7 @@ public class DalProduct
 
         DataSource.productsList[index] = product;
     }
-    public Product Get(int id)=>DataSource.productsList.FirstOrDefault(s => s.ID == id);
+    public Product Get(int? id)=>DataSource.productsList.FirstOrDefault(s => s.ID == id);
     public IEnumerable<Product> GetAll(Func<Product, bool> predicat = null)
     {
         if (predicat == null)

@@ -10,11 +10,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalFacade", "DalFacade\DalFacade.csproj", "{D6BC03D5-3DF9-4C88-BE9D-981A76F935D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DalFacade", "DalFacade\DalFacade.csproj", "{D6BC03D5-3DF9-4C88-BE9D-981A76F935D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalList", "DalList\DalList.csproj", "{AFCD346A-40BE-45CA-9482-BD0F5320F089}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DalList", "DalList\DalList.csproj", "{AFCD346A-40BE-45CA-9482-BD0F5320F089}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalTest", "DalTest\DalTest.csproj", "{02C7EBFE-7AF4-4D26-82D5-E4E103857EDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DalTest", "DalTest\DalTest.csproj", "{02C7EBFE-7AF4-4D26-82D5-E4E103857EDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{583445C8-B2E9-45B8-9B94-8D586A59F67B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlTest", "BlTest\BlTest.csproj", "{9CF66D16-FB82-46B3-B348-B89823F40E88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +42,14 @@ Global
 		{02C7EBFE-7AF4-4D26-82D5-E4E103857EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02C7EBFE-7AF4-4D26-82D5-E4E103857EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02C7EBFE-7AF4-4D26-82D5-E4E103857EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{583445C8-B2E9-45B8-9B94-8D586A59F67B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{583445C8-B2E9-45B8-9B94-8D586A59F67B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{583445C8-B2E9-45B8-9B94-8D586A59F67B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{583445C8-B2E9-45B8-9B94-8D586A59F67B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CF66D16-FB82-46B3-B348-B89823F40E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF66D16-FB82-46B3-B348-B89823F40E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF66D16-FB82-46B3-B348-B89823F40E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CF66D16-FB82-46B3-B348-B89823F40E88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
